@@ -5,7 +5,7 @@ import "./Body.css";
 import { useDataLayerValue } from "./DataLayer";
 
 import Header from "./Header";
-
+import Songrow from "./Songrow";
 function Body ({ spotify }){
 
     const [{ discover_weekly }, dispatch] = useDataLayerValue();
@@ -28,7 +28,9 @@ function Body ({ spotify }){
                     <Favorite  fontSize="large"/>
                     <MoreHoriz />
                 </div>
-
+                    {discover_weekly?.tracks.items.map(item =>
+                      <Songrow track ={item.track} />
+                    )}
             </div>
         </div>
     )
